@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Finance Calculator Suite</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Finance Calculator Suite</h1>
+<div class="container">
+  <div class="calc-box" id="investment">
+    <h2>Investment Calculator</h2>
+    <label>Initial Investment ($)
+      <input type="number" id="inv-amount" min="0" />
+    </label>
+    <label>Annual Interest Rate (%)
+      <input type="number" id="inv-rate" min="0" step="0.01" />
+    </label>
+    <label>Years
+      <input type="number" id="inv-years" min="0" />
+    </label>
+    <label>Interest Type
+      <select id="inv-type">
+        <option value="compound">Compound</option>
+        <option value="simple">Simple</option>
+      </select>
+    </label>
+    <label>Compounding Frequency
+      <select id="inv-compound">
+        <option value="365">Daily</option>
+        <option value="52">Weekly</option>
+        <option value="26">Bi-Weekly</option>
+        <option value="12" selected>Monthly</option>
+        <option value="1">Yearly</option>
+      </select>
+    </label>
+    <button onclick="calculateInvestment()">Calculate</button>
+    <div class="result" id="investment-result"></div>
+  </div>
+  <div class="calc-box" id="debt">
+    <h2>Debt Payoff Estimator</h2>
+    <label>Debt Amount ($)
+      <input type="number" id="debt-amount" min="0" />
+    </label>
+    <label>Annual Interest Rate (%)
+      <input type="number" id="debt-rate" min="0" step="0.01" />
+    </label>
+    <label>Payment Amount ($)
+      <input type="number" id="debt-payment" min="0" />
+    </label>
+    <label>Payment Frequency
+      <select id="debt-payfreq">
+        <option value="365">Daily</option>
+        <option value="52">Weekly</option>
+        <option value="26">Bi-Weekly</option>
+        <option value="12" selected>Monthly</option>
+        <option value="1">Yearly</option>
+      </select>
+    </label>
+    <label>Interest Type
+      <select id="debt-type">
+        <option value="compound">Compound</option>
+        <option value="simple">Simple</option>
+      </select>
+    </label>
+    <label>Compounding Frequency
+      <select id="debt-compound">
+        <option value="365">Daily</option>
+        <option value="52">Weekly</option>
+        <option value="26">Bi-Weekly</option>
+        <option value="12" selected>Monthly</option>
+        <option value="1">Yearly</option>
+      </select>
+    </label>
+    <button onclick="calculateDebt()">Calculate</button>
+    <div class="result" id="debt-result"></div>
+  </div>
+  <div class="calc-box" id="emi">
+    <h2>EMI Calculator</h2>
+    <label>Loan Amount ($)
+      <input type="number" id="emi-loan" min="0" />
+    </label>
+    <label>Annual Interest Rate (%)
+      <input type="number" id="emi-rate" min="0" step="0.01" />
+    </label>
+    <label>Loan Term (Years)
+      <input type="number" id="emi-years" min="0" />
+    </label>
+    <label>Payment Frequency
+      <select id="emi-payfreq">
+        <option value="365">Daily</option>
+        <option value="52">Weekly</option>
+        <option value="26">Bi-Weekly</option>
+        <option value="12" selected>Monthly</option>
+        <option value="1">Yearly</option>
+      </select>
+    </label>
+    <label>Interest Type
+      <select id="emi-type">
+        <option value="compound">Compound</option>
+        <option value="simple">Simple</option>
+      </select>
+    </label>
+    <label>Compounding Frequency
+      <select id="emi-compound">
+        <option value="365">Daily</option>
+        <option value="52">Weekly</option>
+        <option value="26">Bi-Weekly</option>
+        <option value="12" selected>Monthly</option>
+        <option value="1">Yearly</option>
+      </select>
+    </label>
+    <button onclick="calculateEMI()">Calculate</button>
+    <div class="result" id="emi-result"></div>
+  </div>
+<div class="calc-box" id="currency">
+  <h2>Currency Converter</h2>
+  <label>Amount
+    <input type="number" id="curr-amount" min="0" step="0.01" />
+  </label>
+  <label>From
+    <select id="curr-from">
+      <option value="USD">United States (USD)</option>
+      <option value="CAD">Canada (CAD)</option>
+      <option value="GBP">United Kingdom (GBP)</option>
+      <option value="INR">India (INR)</option>
+      <option value="BDT">Bangladesh (BDT)</option>
+      <option value="PKR">Pakistan (PKR)</option>
+      <option value="JPY">Japan (JPY)</option>
+      <option value="CNY">China (CNY)</option>
+      <option value="RUB">Russia (RUB)</option>
+    </select>
+  </label>
+  <label>To
+    <select id="curr-to">
+      <option value="USD">United States (USD)</option>
+      <option value="CAD">Canada (CAD)</option>
+      <option value="GBP">United Kingdom (GBP)</option>
+      <option value="INR">India (INR)</option>
+      <option value="BDT">Bangladesh (BDT)</option>
+      <option value="PKR">Pakistan (PKR)</option>
+      <option value="JPY">Japan (JPY)</option>
+      <option value="CNY">China (CNY)</option>
+      <option value="RUB">Russia (RUB)</option>
+    </select>
+  </label>
+  <button onclick="convertCurrency()">Convert</button>
+  <div class="result" id="currency-result"></div>
+</div>
+
+</div>
+<script src="javascript.js"></script>
+</body>
+</html>
